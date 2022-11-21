@@ -12,7 +12,7 @@ const todoList = () => {
     let arr = [];
     // Write the date check condition here and return the array of overdue items accordingly.
     for (let i = 0; i < all.length; i++) {
-      if (all[i].dueDate === beforeday) {
+      if (all[i].dueDate === yesterday) {
         //console.log(all[i])
         arr.push(all[i]);
       }
@@ -55,11 +55,11 @@ const todoList = () => {
         } else {
           str += "[x] " + list[i].title + "\n";
         }
-      } else if (list[i].dueDate === beforeday) {
+      } else if (list[i].dueDate === yesterday) {
         if (i === list.length - 1) {
-          str += "[ ] " + list[i].title + " " + beforeday;
+          str += "[ ] " + list[i].title + " " + yesterday;
         } else {
-          str += "[ ] " + list[i].title + " " + beforeday + "\n";
+          str += "[ ] " + list[i].title + " " + yesterday + "\n";
         }
       } else if (list[i].dueDate === tomorrow) {
         if (i === list.length - 1) {
@@ -94,7 +94,7 @@ const formattedDate = (d) => {
 
 var dateToday = new Date();
 const today = formattedDate(dateToday);
-const beforeday = formattedDate(
+const yesterday = formattedDate(
   new Date(new Date().setDate(dateToday.getDate() - 1))
 );
 const tomorrow = formattedDate(
